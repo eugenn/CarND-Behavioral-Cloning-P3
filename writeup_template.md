@@ -14,10 +14,10 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./examples/placeholder.png "Model Visualization"
-[image2]: ./examples/placeholder.png "Grayscaling"
-[image3]: ./examples/placeholder_small.png "Recovery Image"
-[image4]: ./examples/placeholder_small.png "Recovery Image"
+[image1]: ./examples/center.jpg "center image"
+[image2]: ./examples/left.jpg "left image"
+[image3]: ./examples/right.jpg "right image"
+[image4]: ./examples/flip.jpg "flip image"
 [image5]: ./examples/placeholder_small.png "Recovery Image"
 [image6]: ./examples/placeholder_small.png "Normal Image"
 [image7]: ./examples/placeholder_small.png "Flipped Image"
@@ -90,8 +90,27 @@ The model used an adam optimizer so the learning rate was not tuned manually. Af
 
 ####4. Appropriate training data
 
-Training data was chosen to keep the vehicle driving on the road. I used a combination of center lane driving, recovering from the left and right sides of the road.
+To capture good driving behavior, I first recorded three laps on track one using center lane driving. Here is an example image of center lane driving:
 
+**Center Image**
+
+![image1]
+
+After that I recorded one lap driving in the opposite direction. I then recorded the vehicle recovering from the left side and right sides of the road back to center so that the vehicle would learn to how to return back on road.
+
+**Left Image**
+
+![image2]
+
+**Right Image**
+
+![image3]
+
+To augment the data sat, I also flipped images and angles thinking that this would more generalised model. For example, here is an image that has then been flipped:
+
+**Flipped Image**
+
+![image4]
 
 ##Model Architecture and Training Strategy
 

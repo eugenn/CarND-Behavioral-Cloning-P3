@@ -12,7 +12,10 @@ def load_image(data_dir, image_file):
 
 
 def crop(image):
-    return image[60:-25, :, :] # remove the sky and the car front
+    """
+    Crop image and remove the sky and the car front
+    """
+    return image[60:-25, :, :]
 
 
 def resize(image):
@@ -24,6 +27,9 @@ def rgb2yuv(image):
 
 
 def preprocess(image):
+    """
+    Basic image preprocessing
+    """
     image = crop(image)
     image = resize(image)
     image = rgb2yuv(image)
@@ -37,6 +43,9 @@ def random_flip(image, steering_angle):
 
 
 def generator(samples, batch_size=30, dirimg='data'):
+    """
+    Generate training image
+    """
     num_samples = len(samples)
     print('num_samples', num_samples)
     while 1:  # Loop forever so the generator never terminates

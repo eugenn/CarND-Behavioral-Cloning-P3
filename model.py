@@ -12,9 +12,25 @@ from keras.layers.pooling import MaxPooling2D
 from util import INPUT_SHAPE, generator
 
 np.random.seed(0)
+dirimg = 'data'
 
+def load_data():
+    """
+    Load training data
+    """
+    lines = []
+
+    with open('./' + dirimg + '/driving_log.csv') as csvfile:
+        reader = csv.reader(csvfile)
+        for line in reader:
+            lines.append(line)
+
+    return lines
 
 def build_model():
+    """
+    Simplified NVIDIA model 
+    """
     model = Sequential()
 
     model.add(Lambda(lambda x: x / 127.5 - 1.0, input_shape=INPUT_SHAPE))
@@ -38,6 +54,9 @@ def build_model():
 
 
 def train_model(model, lines):
+    """
+    Train the model
+    """
     train_samples, validation_samples = train_test_split(lines, test_size=0.2)
     train_generator = generator(train_samples, batch_size=18)
     validation_generator = generator(validation_samples, batch_size=18)
@@ -54,14 +73,8 @@ def train_model(model, lines):
 
 
 def main():
-    lines = []
-    dirimg = 'data'
-    with open('./' + dirimg + '/driving_log.csv') as csvfile:
-        reader = csv.reader(csvfile)
-        for line in reader:
-            lines.append(line)
 
-    print(len(lines))
+    lines = load_data()
 
     model = build_model()
 
