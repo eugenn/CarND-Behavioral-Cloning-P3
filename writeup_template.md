@@ -1,6 +1,3 @@
-#**Behavioral Cloning** 
-
----
 
 **Behavioral Cloning Project**
 
