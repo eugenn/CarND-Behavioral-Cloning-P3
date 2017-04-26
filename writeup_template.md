@@ -33,9 +33,9 @@ My project includes the following files:
 
 The model.py file contains the code for training and saving the convolution neural network. The file shows the pipeline I used for training and validating the model, and it contains comments to explain how the code works.
 
-###Model Architecture and Training Strategy
+##Model Architecture and Training Strategy
 
-####1. An appropriate model architecture has been employed
+###1. An appropriate model architecture has been employed
 
 The design of the network is based on [the NVIDIA model](https://devblogs.nvidia.com/parallelforall/deep-learning-self-driving-cars/), which has been used by NVIDIA for the end-to-end self driving test. 
 Actually I simplified a bit the original design and have added the following adjustments to the model. 
@@ -93,9 +93,9 @@ The model used an adam optimizer so the learning rate was not tuned manually. Af
 Training data was chosen to keep the vehicle driving on the road. I used a combination of center lane driving, recovering from the left and right sides of the road.
 
 
-###Model Architecture and Training Strategy
+##Model Architecture and Training Strategy
 
-####1. Solution Design Approach
+###1. Solution Design Approach
 
 The overall strategy for deriving a model architecture was to build very simple model and see how the model behaves during test simulations. The first attempts showed that the model on the first turn rolls off the road.
 
@@ -110,6 +110,8 @@ I used ModelCheckpoint from Keras to save the model only if the validation loss 
 I used this training data for training the model. The validation set helped determine if the model was over or under fitting. The ideal number of epochs was 6 as evidenced by mean squared error. I used an adam optimizer so that manually training the learning rate wasn't necessary.
 The size of final model is about 2.3Mb it is quite compact file.
 
+## Conclusion
+I successfully pass the first track but the second track is much more complicated. There are a lot of tricky curves, slopes and many shadows. So maybe need to update the current network design make a bit more complicated, generate more data for tricky cases and increase quantity of epoch.   
 ## References
 - NVIDIA model: https://devblogs.nvidia.com/parallelforall/deep-learning-self-driving-cars/
 - Udacity Self-Driving Car Simulator: https://github.com/udacity/self-driving-car-sim
